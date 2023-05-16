@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+void tab(); void intro(); double money(double list[]);
+using namespace std;
+
+int main()
+{
+	int i = 0, j = 0;
+	char answer = 'y';
+	double total = 0, n[6] = { 0 };
+	intro();
+	while (answer != 'n') {
+		cout << "Select 1,2,3,4,5 or 6 -- >";
+		cin >> i;
+		cout << "주문할 수량을 입력하시오 -->";
+		cin >> n[i-1];
+		cout << "추가로 주문하시겠습니까? <Y/N>";
+		cin >> answer;
+	}
+	total = money(n);
+	cout << "Please pay [ $" << total << " ]" << endl;
+	cout << "Thank you for eating at McDowell's.";
+}
+double money(double list[]) {
+	double total = 0;
+	list[0] *= 0.89;
+	list[1] *= 0.99;
+	list[2] *= 1.29;
+	list[3] *= 2.49;
+	list[4] *= 0.79;
+	list[5] *= 0.99;
+	for (int i = 0; i < 6; i++)
+		total += list[i];
+
+	return total + total/5.5;
+}
+void tab()
+{
+	for (int i = 0; i < 5; i++)
+		cout << '\t';
+}
+
+void intro()
+{
+	cout << "*************************************************" << endl;
+	cout << "McDowell's Restaurant" << endl;
+	cout << "*************************************************" << endl;
+	cout << "Make your Selection from the menu below : " << endl;
+	cout << "1. Regular Hamburger";
+	tab();
+	cout << "$0.89" << endl;
+
+	cout << "2. Regular Cheeseburger";
+	tab();
+	cout << "$0.99" << endl;
+
+	cout << "3. Fish Sandwich";
+	tab();
+	cout << "$1.29" << endl;
+
+	cout << "4. Half-pounder with cheese";
+	cout << '\t' << '\t' << '\t' << '\t';
+	cout << "$2.49" << endl;
+
+	cout << "5. French Fries";
+	tab();
+	cout << '\t';
+	cout << "$0.79" << endl;
+
+	cout << "Large Soft drink";
+	tab();
+	cout << "$0.99" << endl;
+	cout << "*************************************************" << endl;
+}
