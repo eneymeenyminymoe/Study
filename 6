@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int p;
+	for (char a = 'z'; a >= 'a'; a--) {
+		p = 97;
+		for (char b = 'a'; b <= 'z'; b++) {
+			if (p >= (int)a) {
+				cout << b;
+			}
+			else {
+				cout << " ";
+				p++;
+			}
+		}
+		cout << endl;
+	}
+}
