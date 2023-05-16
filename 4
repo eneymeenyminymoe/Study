@@ -1,0 +1,28 @@
+#include <iostream> 
+using namespace std;
+int main()
+{
+	cout << "========================================================" << endl;
+	cout << "일	월	화	수	목	금	토" << endl;
+	cout << "========================================================" << endl;
+
+	int START_DAY, day = 1;
+	srand((unsigned)time(NULL));
+	START_DAY = rand() % 7;
+	if (START_DAY != 0) {
+		for (int a = 0; a < START_DAY; a++)
+			cout << '\t';
+	}
+	
+	for (int j = 0; j < 6; j++) {
+		for (int i = START_DAY; i < 7; i++) {
+			if (day <= 31) {
+				cout << day << '\t';
+				day++;
+			}
+		}
+		START_DAY = 0;
+		cout << endl;
+	}
+	cout << "========================================================" << endl;
+}
