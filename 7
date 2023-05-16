@@ -1,0 +1,18 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+	char a = NULL;
+	while (true) {
+		cout << "알파벳 소문자를 입력하세요 : ";
+		a = _getch();
+		cout << a;
+		if (a== 27)
+		{
+			break;
+		}
+		a = toupper(a);
+		cout << endl << "변환된 대문자는 " << a << "입니다." << endl;
+	}
+}
