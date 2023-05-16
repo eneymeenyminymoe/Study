@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int gen = 0, army = 0, marry = 0, baby = 0, score = 0;
+	cout << "성별 <남:1, 여:2> ? "; 
+	cin >> gen;
+	
+	if (gen == 1) {
+		cout << "군 제대 <예:1, 아니요:2> ? ";
+		cin >> army;
+
+		if (army == 1)
+			score++;
+
+		cout << "결혼 <예:1, 아니요:2> ? ";
+		cin >> marry;
+		if (army == 1 && marry == 1)
+			score++;
+	}
+
+	else if (gen == 2) {
+		cout << "결혼 <예:1, 아니요:2> ? ";
+		cin >> marry;
+
+		if (marry == 1)
+			score++;
+		cout << "자녀 수 <한 명:1, 두 명:2> ? ";
+		cin >> baby;
+
+		if (baby != 0)
+			score += baby;
+	}
+
+	cout << "총 가산점은 " << score << "입니다.";
+} 
