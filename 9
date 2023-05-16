@@ -1,0 +1,56 @@
+#include <iostream>
+void print(int x[][5], int m, int n);
+void sumcolrow(int x[][5]);
+using namespace std;
+int main()
+{
+	int list[5][5] = { 0 };
+	srand((unsigned)time(NULL));
+	cout << "------------------------------------" << endl;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			list[i][j] = rand() % 101;
+			cout << ": " << list[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << "------------------------------------" << endl << endl;
+
+	cout << "위 표의 세로와 가로항, 그리고 모든 합을 " << endl << "각각 행과 열의 마지막에 구합니다." << endl << endl; 
+	sumcolrow(list);
+	print(list, 5, 5);
+}
+
+void sumcolrow(int x[][5]) //가로와 세로의 합을 구함
+{
+	int total1 = 0, total2 = 0, last = 0;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			total1 += x[i][j];
+			total2 += x[j][i];
+		}
+		x[i][4] = total1;
+		x[4][i] = total2;
+		last += total1;
+		total1 = 0;
+		total2 = 0;
+	}
+	x[4][4] = last;
+}
+
+void print(int x[][5], int m, int n)// 가로와 세로의 합을 출력
+{
+	cout << "------------------------------------" << endl;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++)
+		{
+			cout << ": " << x[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << "------------------------------------" << endl;
+}
