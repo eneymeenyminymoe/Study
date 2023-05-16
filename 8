@@ -1,0 +1,33 @@
+#include <iostream> 
+#define MAX 5
+using namespace std;
+int main()
+{
+	int list[MAX], n = 0;
+	double avg = 0;
+	cout << "5명의 점수를 순서대로 입력하세요. " << endl << endl;
+	for (int i = 0; i < MAX; i++)
+	{
+		cout << i+1 << "번의 퀴즈 점수는? ";
+		cin >> list[i];
+		avg += list[i];
+	}
+
+	avg /= MAX;
+
+	cout << "=================================================" << endl;
+	cout << "  번호" << " 점수" << "  평균과의 차이" << endl;
+	cout << "=================================================" << endl;
+	
+	for (int i = 0; i < MAX; i++)
+		cout << i+1 << '\t' << list[i] << '\t' << list[i] - avg << endl;
+	cout << "=================================================" << endl;
+	cout << "평균  : " << avg << endl;
+	cout << "=================================================" << endl;
+	
+	for (int i = 0; i < MAX; i++)
+		if (list[i] < avg)
+			n++;
+	cout << "평균미만 : " << n << "명";
+
+}
