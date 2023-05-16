@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int hour, rest;
+	double money;
+	cout << "일주일동안 일한 시간을 입력하시오 : ";
+	cin >> hour;
+
+	if (hour < 30) {
+		money = hour * 3100;
+
+		if (money > 100000)
+			money *= 0.9;
+		else
+			money *= 0.95;
+	}
+
+	else if (hour >= 30) {
+		rest = hour - 30;
+		money = 30 * 3100 + rest * 3100 * 1.2;
+
+		if (money > 100000)
+			money *= 0.9;
+		else
+			money *= 0.95;
+	}
+
+	cout << "임금은 " << money << "원 입니다." << endl;
+}
